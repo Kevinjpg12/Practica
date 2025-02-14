@@ -16,9 +16,14 @@ php artisan make:model Profesor -m
 ### Objetivo
 - Sistema de Clases
 *- Maestro de Alumnos
+    php artisan make:model Alumno -m
 *- Maestro de Profesores
+    php artisan make:model Profesor -m
 *- Maestro de Cursor
 *- Maestro de Notas
 *- Maestro de Año Academico
+
+
+
 
 

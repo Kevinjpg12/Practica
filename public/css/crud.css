@@ -1,0 +1,92 @@
+header {
+    background: rgba(0,0,0,0.9);
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+  }
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+#Header {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+}
+
+#Insertar, #Listar, #Edit, #View {
+    width: 80%;
+    margin: auto;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td, th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+button {
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.button-view {
+    background-color: #2196F3;
+    color: white;
+}
+
+.button-edit {
+    background-color: #ff9800;
+    color: white;
+}
+
+.button-delete {
+    background-color: #f44336;
+    color: white;
+}
+
+.button-return {
+    background-color: #607D8B;
+    color: white;
+}
+
+.button-save {
+    background-color: #4CAF50;
+    color: white;
+}
+
+input[type="text"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin: 5px 0 20px 0;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    left: 0;
+    background-color: #fff; /* Fondo blanco para asegurar que no se superponga con otros elementos */
+    z-index: 10; /* Asegura que esté por encima de otras columnas */
+    border-right: 1px solid #ddd; /* Opcional, para un mejor aspecto */
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1); /* Opcional, para darle un efecto de profundidad */
+}

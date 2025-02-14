@@ -22,7 +22,7 @@ class AuthController extends Controller
         $credentials = [
             'email'     => $request->email,
             'password'  => $request->password,
-            'isactive'  => 'Y',
+            //'isactive'  => 'Y',
         ];
         if (Auth::attempt($credentials)){
             return redirect()->intended('dashboard');
