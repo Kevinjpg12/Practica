@@ -18,7 +18,9 @@ Route::get('logout', [AuthController::class,'logout'])->name('logout');
 Route::group(['middleware' => ['auth']], function () {
     Route::get('dashboard',                 [DashboardController::class,'dashboard'])->name('dashboard');
     //Route::get('/dashboard', [ClienteController::class, 'index'])->name('dashboard');
-    Route::resource('/profesor', ProfesorController::class, ['names' => 'profesores']);
+    Route::group(['prefix' => 'maestro'], function (){
+        Route::resource('profesor', ProfesorController::class, ['names' => 'profesores']);
+    }); 
 }); 
  
 

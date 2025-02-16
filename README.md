@@ -24,6 +24,17 @@ php artisan make:model Profesor -m
 *- Maestro de Año Academico
 
 
+### github
+# Subir cambios
+git add .
+git commit -m 'cambios realizados'
+git push
+
+# Descargar cambios
+git pull
+
+
+
 
 
 

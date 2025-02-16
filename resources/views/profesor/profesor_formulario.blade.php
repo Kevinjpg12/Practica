@@ -2,10 +2,9 @@
 
 @section('content')
 
-<form action="{{ route('profesores.update',$row->id) }}" method="POST">
+<form action="{{ $url }}" method="POST">
+    <input type="hidden" name="_method" value="{{ $mode == 'edit' ? 'PUT' : '' }}" />
     @csrf
-    @method('PUT')
-
     Nombre:
     <input type="text" name="nombre" value="{{ $row->nombre }}">
     <br>

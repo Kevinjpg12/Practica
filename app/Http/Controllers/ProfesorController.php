@@ -23,10 +23,14 @@ class ProfesorController extends Controller
      */
     public function create(Request $request)
     {
-        $row = new profesor;
-        $row->fill($request->all());
-        $row->save();
-        return view('profesor.profesor_formulario',['row' => $row]);
+        $row = new Profesor();
+        #$row->fill($request->all());
+        #$row->save();
+        return view('profesor.profesor_formulario',[
+            'row'   => $row,
+            'mode'  => 'new',
+            'url'   => route('profesores.store'),
+        ]);
     }
 
     /**
@@ -34,7 +38,10 @@ class ProfesorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $row = new profesor;
+        $row->fill($request->all());
+        $row->save();
+        return redirect()->route('profesores.index');
     }
 
     /**
@@ -53,7 +60,9 @@ class ProfesorController extends Controller
         //$row = Profesor::find($id);
         $row = Profesor::whereId($id)->first();
         return view('profesor.profesor_formulario',[
-            'row' => $row
+            'row'   => $row,
+            'mode'  => 'edit',
+            'url'   => route('profesores.update',$row->id),
         ]);
     }
 
