@@ -74,6 +74,27 @@
                             Plantilla de Notas
                         </p>
                     </a>
+                <li>
+                 <li class="nav-item">
+                    <a href="{{ route('reportes.index') }}" class="nav-link {{ request()->is('Report/reporte') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Reportes
+                        </p>
+                    </a>
+                <li>
+
+                <li class="nav-item">
+                    <a href="{{ route('logout') }}" class="nav-link ">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Salir
+                        </p>
+                    </a>
+                <li>
+
+               
+
             </ul>                
         </nav>
         <!-- /.sidebar-menu -->

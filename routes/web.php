@@ -40,6 +40,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::group(['prefix' => 'Plantilla'], function (){
         Route::resource('nota', NotaController::class, ['names' => 'notas']);   
     }); 
+
+    Route::group(['prefix' => 'Report'], function (){
+        Route::resource('reporte', NotaController::class, ['names' => 'reportes']);   
+    }); 
 });   
  
 
