@@ -27,17 +27,17 @@ Route::group(['middleware' => ['auth']], function () {
     Route::group(['prefix' => 'estudiante'], function (){
         Route::resource('alumno', AlumnoController::class, ['names' => 'alumnos']);   
     }); 
-
-    Route::group(['prefix' => 'asignatura'], function (){
+//curso
+    Route::group(['prefix' => 'cursosa'], function (){
         Route::resource('curso', CursoController::class, ['names' => 'cursos']);   
     }); 
+//asignatura
+    // Route::group(['prefix' => 'boleta'], function (){
+    //     Route::resource('asignatura', CursoController::class, ['names' => 'asignaturas']);   
+    // }); 
 
-    Route::group(['prefix' => 'boleta'], function (){
-        Route::resource('nota', CursoController::class, ['names' => 'notas']);   
-    }); 
-
-    Route::group(['prefix' => 'siglo'], function (){
-        Route::resource('año', CursoController::class, ['names' => 'años']);   
+    Route::group(['prefix' => 'Plantilla'], function (){
+        Route::resource('curso', CursoController::class, ['names' => 'notas']);   
     }); 
 });   
  

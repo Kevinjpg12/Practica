@@ -32,8 +32,8 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item {{ request()->is('maestro*') ? 'menu-open' : '' }}">
-                    <a href="#" class="nav-link {{ request()->is('maestro*') ? 'active' : '' }}">
+                <li class="nav-item {{ request()->is('maestro*','estudiante*','cursosa*') ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ request()->is('maestro*','estudiante*','cursosa*') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Maestro
@@ -60,23 +60,13 @@
 
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('notas.index') }}" class="nav-link  {{ request()->is('boleta/nota*') ? 'active' : '' }}">
+                            <a href="{{ route('cursos.index') }}" class="nav-link  {{ request()->is('cursosa/curso*') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Cursos</p>
                             </a>
                         </li>
                     </ul>
-
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{ route('notas.index') }}" class="nav-link  {{ request()->is('boleta/nota*') ? 'active' : '' }}">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Asignatura</p>
-                            </a>
-                        </li>
-                    </ul>
-
-                
+                                    
         </nav>
         <!-- /.sidebar-menu -->
     </div>
