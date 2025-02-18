@@ -15,7 +15,9 @@
             <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}">
         @endif
         <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}">
+        {{-- archivo que hace que se vea feo el login --}}
         <link rel="stylesheet" href="{{ asset('adminlte/css/adminlte.min.css') }}">
+        {{-- arriba archivo feo login --}}
         <link rel="stylesheet" href="{{ asset('plugins/toastr/toastr.min.css')}}">
         <link rel="stylesheet" href="{{ asset('plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
         
@@ -67,7 +69,7 @@
                     e.preventDefault(); // avoid to execute the actual submit of the form.
                     var formData = {
                         q:$("#modalQuerySTOCKInput").val(),
-                        {!! auth()->user()->isadmin == 'Y' ? "u:'".auth()->user()->token."'" : '' !!}
+                        
                     };
                     /*
                     $.ajax({

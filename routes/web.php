@@ -44,6 +44,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::group(['prefix' => 'Report'], function (){
         Route::resource('reporte', NotaController::class, ['names' => 'reportes']);   
     }); 
+
+    Route::group(['prefix' => 'ajax'], function (){
+        Route::post('alumnos', [AlumnoController::class,'ajax_alumno'])->name('ajax_alumno');
+    });
+
 });   
  
 

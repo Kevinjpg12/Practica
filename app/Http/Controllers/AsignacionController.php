@@ -2,18 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\cliente;
 use Illuminate\Http\Request;
 
-class ClienteController extends Controller
+class AsignacionController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $clientes = cliente::all();
-        return view('profesor', compact('clientes'));
+        return view('asignacion.asignacion_listar');
     }
 
     /**

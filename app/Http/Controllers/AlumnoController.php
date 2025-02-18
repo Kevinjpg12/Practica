@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Alumno;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AlumnoController extends Controller
 {
@@ -91,5 +92,19 @@ class AlumnoController extends Controller
             $data['message'] = 'El registro no existe o ya fue eliminado!';
         }
         return response()->json($data, $data['status'] == 100 ? 200 : 403);
+    }
+
+    public function ajax_alumno(Request $request){
+        $s = $request->s;
+        $q = str_replace(' ','%',"{$request->q}").'%';
+        $result = Alumno::select(
+                                'id as id',
+                                'nombre as text'
+                            )                            
+                            ->orWhere(DB::raw("CONCAT('apellido','nombre')"),'LIKE',$q)
+                            ->orderBy('apellidos')
+                            ->limit(env('RESULT_SELECT2',20))
+                            ->get();
+        return response()->json(['results' => $result]);
     }
 }

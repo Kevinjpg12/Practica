@@ -19,7 +19,7 @@ php artisan make:model Profesor -m
     profesores
     Alumnos
     cursor
-    Asignaturas
+    
 *   ** Año y Ciclo (solo es referencial) esto es solo para manejar como varchar()
     ** periodo varchar(6) 202501    date('Ym')
     php artisan make:model Alumno -m

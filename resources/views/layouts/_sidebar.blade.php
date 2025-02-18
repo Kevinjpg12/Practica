@@ -67,6 +67,15 @@
                         </li>
                     </ul>
                 </li>
+                
+                <li class="nav-item">
+                    <a href="{{ route('notas.index') }}" class="nav-link {{ request()->is('Plantilla/nota') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Asignación de Cursos
+                        </p>
+                    </a>
+                <li>
                 <li class="nav-item">
                     <a href="{{ route('notas.index') }}" class="nav-link {{ request()->is('Plantilla/nota') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>

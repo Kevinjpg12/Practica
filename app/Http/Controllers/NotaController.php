@@ -23,7 +23,7 @@ class NotaController extends Controller
      */
     public function create()
     {
-        //
+        return view('notas.nota_formulario');
     }
 
     /**

@@ -6,7 +6,7 @@
 
 @section('content')
     Mostrando la lista de profesore
-    <a href="{{ route('profesores.create') }}">Nuevo</a>
+    <a href="{{ route('notas.create') }}">Nuevo</a>
     <table class="table">
         <thead>
             <tr>
