@@ -15,13 +15,25 @@ php artisan make:model Profesor -m
 
 ### Objetivo
 - Sistema de Clases
-*- Maestro de Alumnos
+*- Maestro 
+    profesores
+    Alumnos
+    cursor
+    Asignaturas
+*   ** Año y Ciclo (solo es referencial) esto es solo para manejar como varchar()
+    ** periodo varchar(6) 202501    date('Ym')
     php artisan make:model Alumno -m
-*- Maestro de Profesores
     php artisan make:model Profesor -m
-*- Maestro de Cursor
-*- Maestro de Notas
-*- Maestro de Año Academico
+*- Planilla de Notas (Ingresar o registrar notas del alumno)
+    Registra notas (CRUD)
+        * Buscar alumno
+        * Selecionar asignatura
+        * ingresar nota y grabar
+*- Reportes (Consulta de de Notas Masivas o individual)
+    * reporte por Periodo (ratio de alumnos y promedios)
+    * reporte por alumno (notas y promedio)
+    * reporte por profesor (cantidad de alumnos)
+*- Salir (form post)
 
 
 ### github
@@ -36,6 +48,12 @@ git log
 # Descargar cambios
 git pull
 
+
+# programas a instalr
+* composer
+* git
+* xampp php 8.2
+* mysql workbench (UML)
 
 
 
