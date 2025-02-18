@@ -30,6 +30,9 @@ git add .
 git commit -m 'cambios realizados'
 git push
 
+# Verficiar el LOG 
+git log
+
 # Descargar cambios
 git pull
 

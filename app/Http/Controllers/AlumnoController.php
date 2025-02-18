@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Profesor;
+use App\Models\Alumno;
 use Illuminate\Http\Request;
 
-class ProfesorController extends Controller
+class AlumnoController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index()
     {
-        $result = Profesor::all();
-        return view('profesor.profesor_listar',[
+        $result = Alumno::all();
+        return view('alumno.alumno_listar',[
             'result' => $result,
         ]);
     }
@@ -23,13 +23,13 @@ class ProfesorController extends Controller
      */
     public function create()
     {
-        $row = new Profesor();
+        $row = new Alumno();
         #$row->fill($request->all());
         #$row->save();
-        return view('profesor.profesor_formulario',[
+        return view('alumno.alumno_formulario',[
             'row'   => $row,
             'mode'  => 'new',
-            'url'   => route('profesores.store'),
+            'url'   => route('alumnos.store'),
         ]);
     }
 
@@ -38,10 +38,10 @@ class ProfesorController extends Controller
      */
     public function store(Request $request)
     {
-        $row = new profesor;
+        $row = new Alumno();
         $row->fill($request->all());
         $row->save();
-        return redirect()->route('profesores.index');
+        return redirect()->route('alumnos.index');
     }
 
     /**
@@ -57,12 +57,11 @@ class ProfesorController extends Controller
      */
     public function edit(string $id)
     {
-        //$row = Profesor::find($id);
-        $row = Profesor::whereId($id)->first();
-        return view('profesor.profesor_formulario',[
+        $row = Alumno::whereId($id)->first();
+        return view('alumno.alumno_formulario',[
             'row'   => $row,
             'mode'  => 'edit',
-            'url'   => route('profesores.update',$row->id),
+            'url'   => route('alumnos.update',$row->id),
         ]);
     }
 
@@ -71,10 +70,10 @@ class ProfesorController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $row = Profesor::whereId($id)->first();
+        $row = Alumno::whereId($id)->first();
         $row->fill($request->all());
         $row->save();
-        return redirect()->route('profesores.index');
+        return redirect()->route('alumnos.index');
     }
 
     /**
@@ -82,7 +81,7 @@ class ProfesorController extends Controller
      */
     public function destroy(string $id)
     {
-        $row = Profesor::whereId($id)->first();
+        $row = Alumno::whereId($id)->first();
         if($row){
             $row->delete();
             $data['status'] = 100;

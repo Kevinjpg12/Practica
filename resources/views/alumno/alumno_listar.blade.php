@@ -5,8 +5,8 @@
 @endpush
 
 @section('content')
-    Mostrando la lista de profesore
-    <a href="{{ route('profesores.create') }}">Nuevo</a>
+    Mostrando la lista de alumnos
+    <a href="{{ route('alumnos.create') }}">Nuevo</a>
     <table class="table">
         <thead>
             <tr>
@@ -27,9 +27,9 @@
                     <td>{{ $item->telefono }}</td>
                     <td>{{ $item->email }}</td>
                     <td>
-                        <a href="{{ route('profesores.edit',$item->id) }}">Editar</a> | 
+                        <a href="{{ route('alumnos.edit',$item->id) }}">Editar</a> | 
                         <a href="#" class="delete-record" data-id="{{ $item->id }}"
-                                    data-url="{{ route('profesores.destroy', $item->id) }}">
+                                    data-url="{{ route('alumnos.destroy', $item->id) }}">
                                     <i class="far fa-trash-alt"></i>
                         </a>
                 </tr>

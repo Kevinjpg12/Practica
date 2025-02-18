@@ -5,16 +5,16 @@
 @endpush
 
 @section('content')
-    Mostrando la lista de profesore
-    <a href="{{ route('profesores.create') }}">Nuevo</a>
+    Mostrando la lista de alumnos
+    <a href="{{ route('alumnos.create') }}">Nuevo</a>
     <table class="table">
         <thead>
             <tr>
                 <th>ID</th>
-                <th>NOMBRE</th>
-                <th>APELLIDO</th>
-                <th>TELEFONO</th>
-                <th>CORREO</th>
+                <th>Descripcion</th>
+                <th>Horario</th>
+                <th>Valor</th>
+                <th>Profesor</th>
                 <th>ACCIONES</th>
             </tr>
         </thead>
@@ -22,14 +22,14 @@
             @forelse ($result as $item)
                 <tr id="tr-{{ $item->id }}">
                     <td>{{ $item->id }}</td>
-                    <td>{{ $item->nombre }}</td>
-                    <td>{{ $item->apellidos }}</td>
-                    <td>{{ $item->telefono }}</td>
-                    <td>{{ $item->email }}</td>
+                    <td>{{ $item->descripcion }}</td>
+                    <td>{{ $item->horario }}</td>
+                    <td>{{ $item->valor }}</td>
+                    <td>{{ $item->profesor }}</td>
                     <td>
-                        <a href="{{ route('profesores.edit',$item->id) }}">Editar</a> | 
+                        <a href="{{ route('cursos.edit',$item->id) }}">Editar</a> | 
                         <a href="#" class="delete-record" data-id="{{ $item->id }}"
-                                    data-url="{{ route('profesores.destroy', $item->id) }}">
+                                    data-url="{{ route('cursos.destroy', $item->id) }}">
                                     <i class="far fa-trash-alt"></i>
                         </a>
                 </tr>
