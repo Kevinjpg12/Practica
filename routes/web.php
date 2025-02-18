@@ -4,6 +4,7 @@ use App\Http\Controllers\AlumnoController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CursoController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\NotaController;
 use App\Http\Controllers\ProfesorController;
 use Illuminate\Support\Facades\Route;
 
@@ -37,7 +38,7 @@ Route::group(['middleware' => ['auth']], function () {
     // }); 
 
     Route::group(['prefix' => 'Plantilla'], function (){
-        Route::resource('curso', CursoController::class, ['names' => 'notas']);   
+        Route::resource('nota', NotaController::class, ['names' => 'notas']);   
     }); 
 });   
  
