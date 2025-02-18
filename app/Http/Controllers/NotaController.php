@@ -13,7 +13,7 @@ class NotaController extends Controller
     public function index()
     {
         $result = Nota::all();
-        return view('curso.curso_listar',[
+        return view('notas.nota_listar',[
             'result' => $result,
         ]);
     }

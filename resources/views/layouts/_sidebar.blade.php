@@ -65,7 +65,16 @@
                                 <p>Cursos</p>
                             </a>
                         </li>
-                    </ul>                
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('notas.index') }}" class="nav-link {{ request()->is('Plantilla/nota') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Plantilla de Notas
+                        </p>
+                    </a>
+            </ul>                
         </nav>
         <!-- /.sidebar-menu -->
     </div>
