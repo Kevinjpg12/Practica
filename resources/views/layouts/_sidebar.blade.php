@@ -45,18 +45,10 @@
                             <a href="{{ route('profesores.index') }}" class="nav-link  {{ request()->is('maestro/profesor*') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Profesores</p>
-                            </a>
+                            </a>  
+                        </li>             
                     </ul>
-                </li>
 
-                <li class="nav-item {{ request()->is('estudiante*') ? 'menu-open' : '' }}">
-                    <a href="#" class="nav-link {{ request()->is('estudiante*') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p>
-                            Estudiante
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="{{ route('alumnos.index') }}" class="nav-link  {{ request()->is('estudiante/alumno*') ? 'active' : '' }}">
@@ -65,72 +57,26 @@
                             </a>
                         </li>
                     </ul>
-                </li>
 
-                <li class="nav-item {{ request()->is('asignatura*') ? 'menu-open' : '' }}">
-                    <a href="#" class="nav-link {{ request()->is('asignatura*') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p>
-                            Asignatura
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{ route('cursos.index') }}" class="nav-link  {{ request()->is('asignatura/curso*') ? 'active' : '' }}">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Curso</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
- 
-                <li class="nav-item {{ request()->is('boleta*') ? 'menu-open' : '' }}">
-                    <a href="#" class="nav-link {{ request()->is('boleta*') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p>
-                            Boleta de Notas
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="{{ route('notas.index') }}" class="nav-link  {{ request()->is('boleta/nota*') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Notas</p>
+                                <p>Cursos</p>
                             </a>
                         </li>
                     </ul>
-                </li>
 
-                <li class="nav-item {{ request()->is('siglo*') ? 'menu-open' : '' }}">
-                    <a href="#" class="nav-link {{ request()->is('siglo*') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p>
-                            Siglo Escolar
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('años.index') }}" class="nav-link  {{ request()->is('siglo/año*') ? 'active' : '' }}">
+                            <a href="{{ route('notas.index') }}" class="nav-link  {{ request()->is('boleta/nota*') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Año Escolar</p>
+                                <p>Asignatura</p>
                             </a>
                         </li>
                     </ul>
-                </li>
 
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>
-                            Simple Link
-                            <span class="right badge badge-danger">New</span>
-                        </p>
-                    </a>
-                </li>
-            </ul>
+                
         </nav>
         <!-- /.sidebar-menu -->
     </div>
