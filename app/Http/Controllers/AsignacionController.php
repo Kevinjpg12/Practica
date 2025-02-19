@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Asignacion;
 use Illuminate\Http\Request;
 
 class AsignacionController extends Controller
@@ -11,7 +12,10 @@ class AsignacionController extends Controller
      */
     public function index()
     {
-        return view('asignacion.asignacion_listar');
+        $result = Asignacion::paginate(15);
+        return view('asignacion.asignacion_listar',[
+            'result'    => $result,
+        ]);
     }
 
     /**
@@ -19,7 +23,12 @@ class AsignacionController extends Controller
      */
     public function create()
     {
-        //
+        $row = new Asignacion();
+        return view('asignacion.asignacion_formulacion',[
+            'row'   => $row,
+            'mode'  => 'new',
+            'url'   => route('profesores.store'),
+        ]);
     }
 
     /**
@@ -27,7 +36,10 @@ class AsignacionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $row = new Asignacion();
+        $row->fill($request->all());
+        $row->save();
+        return redirect()->route('asignacion.index');
     }
 
     /**

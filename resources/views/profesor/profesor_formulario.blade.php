@@ -33,11 +33,11 @@
                         <div class="row mb-2">
                             <div class="col-md-4">
                                 <label class="mb-0">Nombres</label>
-                                <input type="text" class="form-control" name="nombre" value="{{ $row->nombre }}">
+                                <input type="text" class="form-control" name="nombre" value="{{ old('nombre',$row->nombre) }}" required>
                             </div>
                             <div class="col-md-8">
                                 <label class="mb-0">Apellidos</label>
-                                <input type="text" class="form-control" name="apellidos" value="{{ $row->apellidos }}">
+                                <input type="text" class="form-control" name="apellidos" value="{{ old('apellidos',$row->apellidos) }}" required>
                             </div>
                         </div>
                         <div class="row mb-2">

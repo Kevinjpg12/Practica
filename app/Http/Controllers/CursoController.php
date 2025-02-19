@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Curso;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CursoController extends Controller
 {
@@ -74,4 +75,19 @@ class CursoController extends Controller
     {
         //
     }
+
+    public function ajax_curso(Request $request){
+        $s = $request->s;
+        $q = str_replace(' ','%',"{$request->q}").'%';
+        $result = Curso::select(
+                                'id as id',
+                                'descripcion as text'
+                            )                            
+                            ->orWhere(DB::raw("CONCAT('apellido','nombre')"),'LIKE',$q)
+                            ->orderBy('descripcion')
+                            ->limit(env('RESULT_SELECT2',20))
+                            ->get();
+        return response()->json(['results' => $result]);
+    }
+
 }

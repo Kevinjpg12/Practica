@@ -25,7 +25,7 @@ class ProfesorController extends Controller
         $result = Profesor::orWhere('telefono','LIKE',$q)
                             ->orWhere('email','LIKE',$q)
                             ->orWhere(DB::raw("CONCAT('apellidos','nombres')"),'LIKE',$q)
-                            ->paginate(15)
+                            ->paginate(30)
                             ->withQueryString();
         session([
             "session_profesores_q_search" => $request->q,
@@ -56,6 +56,10 @@ class ProfesorController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nombre'    => 'required',
+            'apellidos' => 'required',
+        ]);
         $row = new profesor;
         $row->fill($request->all());
         $row->save();
@@ -89,6 +93,10 @@ class ProfesorController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $request->validate([
+            'nombre'    => 'required|min:2',
+            'apellidos' => 'required',
+        ]);
         $row = Profesor::whereId($id)->first();
         $row->fill($request->all());
         $row->save();
@@ -111,4 +119,19 @@ class ProfesorController extends Controller
         }
         return response()->json($data, $data['status'] == 100 ? 200 : 403);
     }
+
+    public function ajax_profesor(Request $request){
+        $s = $request->s;
+        $q = str_replace(' ','%',"{$request->q}").'%';
+        $result = Profesor::select(
+                                'id as id',
+                                'nombre as text'
+                            )                            
+                            ->orWhere(DB::raw("CONCAT('apellido','nombre')"),'LIKE',$q)
+                            ->orderBy('apellidos')
+                            ->limit(env('RESULT_SELECT2',20))
+                            ->get();
+        return response()->json(['results' => $result]);
+    }
+
 }

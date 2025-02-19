@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AlumnoController;
+use App\Http\Controllers\AsignacionController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CursoController;
 use App\Http\Controllers\DashboardController;
@@ -21,19 +22,17 @@ Route::group(['middleware' => ['auth']], function () {
     //Route::get('/dashboard', [ClienteController::class, 'index'])->name('dashboard');
     Route::group(['prefix' => 'maestro'], function (){
         Route::resource('profesor', ProfesorController::class, ['names' => 'profesores']);   
-    }); 
-
-    Route::group(['prefix' => 'estudiante'], function (){
         Route::resource('alumno', AlumnoController::class, ['names' => 'alumnos']);   
-    }); 
-//curso
-    Route::group(['prefix' => 'cursosa'], function (){
         Route::resource('curso', CursoController::class, ['names' => 'cursos']);   
     }); 
+
+  
 //asignatura
     // Route::group(['prefix' => 'boleta'], function (){
     //     Route::resource('asignatura', CursoController::class, ['names' => 'asignaturas']);   
     // }); 
+
+    Route::resource('asignacion/manager', AsignacionController::class, ['names' => 'asignacion']);   
 
     Route::group(['prefix' => 'Plantilla'], function (){
         Route::resource('nota', NotaController::class, ['names' => 'notas']);   
@@ -45,6 +44,8 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::group(['prefix' => 'ajax'], function (){
         Route::post('alumnos', [AlumnoController::class,'ajax_alumno'])->name('ajax_alumno');
+        Route::post('profesor', [ProfesorController::class,'ajax_profesor'])->name('ajax_profesor');
+        Route::post('curso', [CursoController::class,'ajax_curso'])->name('ajax_curso');
     });
 
 });   

@@ -32,8 +32,8 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item {{ request()->is('maestro*','estudiante*','cursosa*') ? 'menu-open' : '' }}">
-                    <a href="#" class="nav-link {{ request()->is('maestro*','estudiante*','cursosa*') ? 'active' : '' }}">
+                <li class="nav-item {{ request()->is('maestro*') ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ request()->is('maestro*') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Maestro
@@ -47,16 +47,16 @@
                                 <p>Profesores</p>
                             </a>  
                         </li>             
-                     
+                   
                         <li class="nav-item">
-                            <a href="{{ route('alumnos.index') }}" class="nav-link  {{ request()->is('estudiante/alumno*') ? 'active' : '' }}">
-                                <i class="far fa-circle nav-icon"></i>
+                            <a href="{{ route('alumnos.index') }}" class="nav-link  {{ request()->is('maestro/alumno*') ? 'active' : '' }}">
+                                <i class="fas fa-users nav-icon"></i>
                                 <p>Alumnos</p>
                             </a>
                         </li>
                     
                         <li class="nav-item">
-                            <a href="{{ route('cursos.index') }}" class="nav-link  {{ request()->is('cursosa/curso*') ? 'active' : '' }}">
+                            <a href="{{ route('cursos.index') }}" class="nav-link  {{ request()->is('maestro/curso*') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Cursos</p>
                             </a>
@@ -65,7 +65,7 @@
                 </li>
                 
                 <li class="nav-item">
-                    <a href="{{ route('notas.index') }}" class="nav-link {{ request()->is('Plantilla/nota') ? 'active' : '' }}">
+                    <a href="{{ route('asignacion.index') }}" class="nav-link {{ request()->is('asignacion/manager*') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Asignación de Cursos
