@@ -108,7 +108,7 @@
                     <td>{{ $item->id }}</td>                    
                     <td>{{ $item->alumno->apellido . ' ' .$item->alumno->nombre }}</td>
                     <td>{{ $item->profesor->apellido . ' ' .$item->profesor->nombre }}</td>
-                    {{-- <td>{{ $item->curso->descripcion }}</td> --}}
+                    <td>{{ $item->curso->descripcion }}</td>
                 </tr>
             @empty
                 <tr>

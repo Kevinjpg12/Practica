@@ -25,7 +25,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12 col-md-5 mt-2">
-                    <form action="{{ route('alumnos.index') }}" method="GET">
+                    <form action="{{ route('notas.index') }}" method="GET">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                         <div class="btn-toolbar" role="toolbar">
                             <div class="input-group">
@@ -114,9 +114,9 @@
                             <td>{{ $item->curso }}</td>
                             <td>{{ $item->nota }}</td>
                             <td class="text-right">
-                                <a href="{{ route('cursos.edit', $item->id) }}">Editar</a> |
+                                <a href="{{ route('notas.edit', $item->id) }}">Editar</a> |
                                 <a href="#" class="delete-record" data-id="{{ $item->id }}"
-                                    data-url="{{ route('cursos.destroy', $item->id) }}">
+                                    data-url="{{ route('notas.destroy', $item->id) }}">
                                     <i class="far fa-trash-alt"></i>
                                 </a>
                             </td>

@@ -10,6 +10,10 @@ class Curso extends Model
         'descripcion', 
         'horario', 
         'valor', 
-        'profesor'
+        'profesor_id'
     ];
+    
+    public function profesor(){
+        return $this->hasOne(Profesor::class,'id','profesor_id');
+    }
 } 

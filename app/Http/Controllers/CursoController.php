@@ -52,7 +52,7 @@ class CursoController extends Controller
         ]);
     }
 
-    /**
+    /** 
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
@@ -62,7 +62,7 @@ class CursoController extends Controller
             'descripcion'    => 'required',
             'horario' => 'required',
             'valor' => 'required',
-            'profesor' => 'required',
+            'profesor_id' => 'required',
 
         ]);
 

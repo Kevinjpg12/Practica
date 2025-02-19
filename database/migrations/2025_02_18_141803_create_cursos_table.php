@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('descripcion',100)->nullable();
             $table->string('horario',100)->nullable();
             $table->string('valor',30)->nullable();
-            $table->string('profesor',150)->nullable();
+            $table->foreignId('profesor_id');
            
             $table->timestamps();
         });
