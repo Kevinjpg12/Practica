@@ -10,16 +10,16 @@
     @method('POST')
 
     Nombre:
-    <input type="text" name="nombre" value="{{ $row->nombre }}">
+    <input type="text" name="descripcion" value="{{ $row->descripcion }}">
     <br>
     Apellido:
-    <input type="text" name="apellidos" value="{{ $row->apellidos }}"> 
+    <input type="text" name="horario" value="{{ $row->horario }}"> 
     <br>
     Telefono:
-    <input type="text" name="telefono" value="{{ $row->telefono }}"> 
+    <input type="text" name="valor" value="{{ $row->valor }}"> 
     <br>
     Correo:
-    <input type="text" name="email" value="{{ $row->email }}"> 
+    <input type="text" name="profesor" value="{{ $row->profesor }}"> 
     <br>
     <button type="submit">Grabar
     </button>

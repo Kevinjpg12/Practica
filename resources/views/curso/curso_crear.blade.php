@@ -9,16 +9,16 @@
     @csrf
     @method('POST')
 
-    Nombre:
+    Descripcion:
     <input type="text" name="nombre" value="{{ $row->nombre }}">
     <br>
-    Apellido:
+    Horario:
     <input type="text" name="apellidos" value="{{ $row->apellidos }}"> 
     <br>
-    Telefono:
+    Valor:
     <input type="text" name="telefono" value="{{ $row->telefono }}"> 
     <br>
-    Correo:
+    Profesor:
     <input type="text" name="email" value="{{ $row->email }}"> 
     <br>
     <button type="submit">Grabar

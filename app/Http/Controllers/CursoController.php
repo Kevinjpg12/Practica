@@ -24,7 +24,14 @@ class CursoController extends Controller
      */
     public function create()
     {
-        //
+        $row = new Curso();
+        #$row->fill($request->all());
+        #$row->save();
+        return view('curso.curso_formulario',[
+            'row'   => $row,
+            'mode'  => 'new',
+            'url'   => route('cursos.store'),
+        ]);
     }
 
     /**
@@ -32,7 +39,19 @@ class CursoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       
+        $request->validate([
+            'descripcion'    => 'required',
+            'horario' => 'required',
+            'valor' => 'required',
+            'profesor' => 'required',
+
+        ]);
+
+        $row = new Curso();
+        $row->fill($request->all());
+        $row->save();
+        return redirect()->route('cursos.index');
     }
 
     /**
@@ -59,7 +78,7 @@ class CursoController extends Controller
 
     /**
      * Update the specified resource in storage.
-     */
+     */ 
     public function update(Request $request, string $id)
     {
         $row = Curso::whereId($id)->first();

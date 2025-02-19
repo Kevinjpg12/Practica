@@ -8,9 +8,9 @@
 
 @section('content')
     Mostrando la lista de alumnos
-    <a href="{{ route('alumnos.create') }}">Nuevo</a>
+    <a href="{{ route('cursos.create') }}">Nuevo</a>
     <table class="table">
-        <thead>
+        <thead> 
             <tr>
                 <th>ID</th>
                 <th>Descripcion</th>
