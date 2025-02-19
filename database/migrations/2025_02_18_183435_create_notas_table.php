@@ -13,8 +13,11 @@ return new class extends Migration
     {
         Schema::create('notas', function (Blueprint $table) {
             $table->id();
-             $table->string('descripcion',100)->nullable();
-            $table->timestamps();
+            $table->foreignId('alumno_id');
+            $table->foreignId('curso_id');
+            $table->string('nota',20)->nullable();
+
+            $table->timestamps(); 
         });
     }
 

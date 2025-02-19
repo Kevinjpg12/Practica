@@ -11,11 +11,29 @@ class CursoController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        $result = Curso::all();
+    public function index(Request $request)
+    { 
+        
+        if($request->has('q')){
+            $q = $request->q;
+            $q = str_replace('(','',$q);
+            $q = str_replace("'",'',$q);
+            $q = str_replace("@",' ',$q);
+            $q = '%'.str_replace(' ','%',$q).'%';
+        }else{
+            $q = session("session_cursos_q_search");
+        }
+        $result = Curso::orWhere('descripcion','LIKE',$q)
+                            ->orWhere('horario','LIKE',$q)
+                            // ->orWhere(DB::raw("CONCAT('apellidos','nombres')"),'LIKE',$q)
+                            ->paginate(30)
+                            ->withQueryString();
+        session([
+            "session_cursos_q_search" => $request->q,
+        ]);
         return view('curso.curso_listar',[
             'result' => $result,
+            'q' => ($request->has('q')) ? $request->q : '',
         ]);
     }
 

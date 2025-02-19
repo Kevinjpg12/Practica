@@ -18,11 +18,18 @@
 @section('content')
 
 <div class="col-md-12">
-                        <label class="mb-0">Alumno</label>
-                        <select name="alumno_id" class="form-control select2-alumno" required>
-                             
-                        </select>
-                    </div>    
+    <label class="mb-0">Alumno</label>
+    <select name="alumno_id" class="form-control select2-alumno" required>
+            
+    </select>
+</div>    
+
+<div class="col-md-12">
+    <label class="mb-0">Curso</label>
+    <select name="curso_id" class="form-control select2-curso" required>
+
+    </select> 
+</div>
 
 
 @endsection
@@ -57,9 +64,30 @@
                 theme: 'bootstrap4',
             });
 
+            $('.select2-curso').select2({
+                ajax: {
+                    url: "{{ route('ajax_curso') }}",
+                    type: 'post',
+                    dataType: 'json',
+                    delay: 150,
+                    data: function(params) {
+                        return {
+                            q: params.term, // search term
+                            page: params.page
+                        };
+                    },
+                    cache: true
+                },
+                placeholder: 'Selecciona un Curso',
+                allowClear: true,
+                minimumInputLength: 0,
+                theme: 'bootstrap4',
+            });
+
+        
         });
         
     </script>
-@endpush
+@endpush 
 
  

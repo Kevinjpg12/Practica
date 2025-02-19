@@ -4,17 +4,36 @@ namespace App\Http\Controllers;
 
 use App\Models\Asignacion;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AsignacionController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        $result = Asignacion::paginate(15);
+    public function index(Request $request)
+    { 
+        if($request->has('q')){
+            $q = $request->q;
+            $q = str_replace('(','',$q);
+            $q = str_replace("'",'',$q);
+            $q = str_replace("@",' ',$q);
+            $q = '%'.str_replace(' ','%',$q).'%';
+        }else{ 
+            $q = session("session_asignacion_q_search");
+        }
+        $result = Asignacion::orWhere('alumno_id','LIKE',$q)
+                            ->orWhere('profesor_id','LIKE',$q)
+                            // ->orWhere(DB::raw("CONCAT('apellidos','nombres')"),'LIKE',$q)
+                            ->paginate(30)
+                            ->withQueryString();
+        session([
+            "session_asignacion_q_search" => $request->q,
+        ]);
+        // $result = Asignacion::paginate(15);
         return view('asignacion.asignacion_listar',[
             'result'    => $result,
+            'q' => ($request->has('q')) ? $request->q : '',
         ]);
     }
 

@@ -11,11 +11,28 @@ class AlumnoController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        $result = Alumno::all();
+    public function index(Request $request)
+    { 
+        if($request->has('q')){
+            $q = $request->q;
+            $q = str_replace('(','',$q);
+            $q = str_replace("'",'',$q);
+            $q = str_replace("@",' ',$q);
+            $q = '%'.str_replace(' ','%',$q).'%';
+        }else{
+            $q = session("session_alumnos_q_search");
+        }
+        $result = Alumno::orWhere('telefono','LIKE',$q)
+                            ->orWhere('email','LIKE',$q)
+                            ->orWhere(DB::raw("CONCAT('apellidos','nombres')"),'LIKE',$q)
+                            ->paginate(30)
+                            ->withQueryString();
+        session([
+            "session_alumnos_q_search" => $request->q,
+        ]);
         return view('alumno.alumno_listar',[
             'result' => $result,
+            'q' => ($request->has('q')) ? $request->q : '',
         ]);
     }
 
