@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Profesor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProfesorController extends Controller
 {
@@ -12,7 +13,23 @@ class ProfesorController extends Controller
      */
     public function index(Request $request)
     {
-        $result = Profesor::paginate();
+        if($request->has('q')){
+            $q = $request->q;
+            $q = str_replace('(','',$q);
+            $q = str_replace("'",'',$q);
+            $q = str_replace("@",' ',$q);
+            $q = '%'.str_replace(' ','%',$q).'%';
+        }else{
+            $q = session("session_profesores_q_search");
+        }
+        $result = Profesor::orWhere('telefono','LIKE',$q)
+                            ->orWhere('email','LIKE',$q)
+                            ->orWhere(DB::raw("CONCAT('apellidos','nombres')"),'LIKE',$q)
+                            ->paginate(15)
+                            ->withQueryString();
+        session([
+            "session_profesores_q_search" => $request->q,
+        ]);
         return view('profesor.profesor_listar',[
             'result' => $result,
             'q' => ($request->has('q')) ? $request->q : '',
