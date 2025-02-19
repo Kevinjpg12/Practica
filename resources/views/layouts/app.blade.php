@@ -63,28 +63,7 @@
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     }
                 });
-                $("#modalQuerySTOCKForm").submit(function (e) {
-                    e.preventDefault(); // avoid to execute the actual submit of the form.
-                    var formData = {
-                        q:$("#modalQuerySTOCKInput").val(),
-                        {!! auth()->user()->isadmin == 'Y' ? "u:'".auth()->user()->token."'" : '' !!}
-                    };
-                    /*
-                    $.ajax({
-                        type: "POST",
-                        url: "{-- route('api_product_fast_stock') --}",
-                        //data: $('#modalQuerySTOCKForm').serialize(),
-                        data: formData,
-                        success: function(data){
-                            $('#modalQuerySTOCKResult').html(data);
-                        },
-                        error: function(){
-                            toastr.danger("error petición ajax");
-                        }
-                    });        
-                    */             
-                });
-        
+                
                 //$('.delete-record').click(function(e){
                 $('.delete-record').on('click',function(e){
                     e.preventDefault()
@@ -133,9 +112,7 @@
                 @endif
                  
             });
-            $('#modalQuerySTOCK').on('shown.bs.modal', function () {
-                $('#modalQuerySTOCKInput').focus()
-            })
+            
         </script>
         @stack('script')
     </body>

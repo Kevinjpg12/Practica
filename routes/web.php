@@ -8,8 +8,6 @@ use App\Http\Controllers\NotaController;
 use App\Http\Controllers\ProfesorController;
 use Illuminate\Support\Facades\Route;
 
-use function Pest\Laravel\get;
-
 Route::get('/', function () {
     return view('welcome');
 });

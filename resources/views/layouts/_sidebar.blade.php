@@ -47,18 +47,14 @@
                                 <p>Profesores</p>
                             </a>  
                         </li>             
-                    </ul>
-
-                    <ul class="nav nav-treeview">
+                     
                         <li class="nav-item">
                             <a href="{{ route('alumnos.index') }}" class="nav-link  {{ request()->is('estudiante/alumno*') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Alumnos</p>
                             </a>
                         </li>
-                    </ul>
-
-                    <ul class="nav nav-treeview">
+                    
                         <li class="nav-item">
                             <a href="{{ route('cursos.index') }}" class="nav-link  {{ request()->is('cursosa/curso*') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
