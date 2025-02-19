@@ -34,7 +34,7 @@
                 </li>
                 <li class="nav-item {{ request()->is('maestro*') ? 'menu-open' : '' }}">
                     <a href="#" class="nav-link {{ request()->is('maestro*') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <i class="nav-icon fas fa-users"></i>
                         <p>
                             Maestro
                             <i class="right fas fa-angle-left"></i>
@@ -43,21 +43,21 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="{{ route('profesores.index') }}" class="nav-link  {{ request()->is('maestro/profesor*') ? 'active' : '' }}">
-                                <i class="far fa-circle nav-icon"></i>
+                                <i class="fas fa-chalkboard-teacher nav-icon"></i>
                                 <p>Profesores</p>
                             </a>  
                         </li>             
                    
                         <li class="nav-item">
                             <a href="{{ route('alumnos.index') }}" class="nav-link  {{ request()->is('maestro/alumno*') ? 'active' : '' }}">
-                                <i class="fas fa-users nav-icon"></i>
+                                <i class="fas fa-user-graduate nav-icon"></i>
                                 <p>Alumnos</p>
                             </a>
                         </li>
                     
                         <li class="nav-item">
                             <a href="{{ route('cursos.index') }}" class="nav-link  {{ request()->is('maestro/curso*') ? 'active' : '' }}">
-                                <i class="far fa-circle nav-icon"></i>
+                                <i class="fas fa-book nav-icon"></i>
                                 <p>Cursos</p>
                             </a>
                         </li>
@@ -66,7 +66,7 @@
                 
                 <li class="nav-item">
                     <a href="{{ route('asignacion.index') }}" class="nav-link {{ request()->is('asignacion/manager*') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <i class="nav-icon fas fa-edit"></i>
                         <p>
                             Asignación de Cursos
                         </p>
@@ -74,15 +74,15 @@
                 <li>
                 <li class="nav-item">
                     <a href="{{ route('notas.index') }}" class="nav-link {{ request()->is('Plantilla/nota') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <i class="nav-icon fas fa-book-open"></i>
                         <p>
-                            Plantilla de Notas
+                            Planilla de Notas
                         </p>
                     </a>
                 <li>
                  <li class="nav-item">
                     <a href="{{ route('reportes.index') }}" class="nav-link {{ request()->is('Report/reporte') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <i class="nav-icon fas fa-sticky-note"></i>
                         <p>
                             Reportes
                         </p>
@@ -91,7 +91,7 @@
 
                 <li class="nav-item">
                     <a href="{{ route('logout') }}" class="nav-link ">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <i class="nav-icon fas fa-door-open"></i>
                         <p>
                             Salir
                         </p>

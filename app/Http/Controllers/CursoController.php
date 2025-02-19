@@ -92,7 +92,16 @@ class CursoController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $row = Curso::whereId($id)->first();
+        if($row){
+            $row->delete();
+            $data['status'] = 100;
+            $data['message'] = 'Registro eliminado!';
+        }else{
+            $data['status'] = 101;
+            $data['message'] = 'El registro no existe o ya fue eliminado!';
+        }
+        return response()->json($data, $data['status'] == 100 ? 200 : 403);
     }
 
     public function ajax_curso(Request $request){
