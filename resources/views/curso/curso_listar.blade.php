@@ -4,6 +4,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 @endpush
 
+
+
 @section('content')
     Mostrando la lista de alumnos
     <a href="{{ route('alumnos.create') }}">Nuevo</a>
@@ -27,10 +29,10 @@
                     <td>{{ $item->valor }}</td>
                     <td>{{ $item->profesor }}</td>
                     <td>
-                        <a href="{{ route('cursos.edit',$item->id) }}">Editar</a> | 
+                        <a href="{{ route('cursos.edit', $item->id) }}">Editar</a> |
                         <a href="#" class="delete-record" data-id="{{ $item->id }}"
-                                    data-url="{{ route('cursos.destroy', $item->id) }}">
-                                    <i class="far fa-trash-alt"></i>
+                            data-url="{{ route('cursos.destroy', $item->id) }}">
+                            <i class="far fa-trash-alt"></i>
                         </a>
                 </tr>
             @empty

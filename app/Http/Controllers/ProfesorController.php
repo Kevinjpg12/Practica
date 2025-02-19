@@ -12,9 +12,10 @@ class ProfesorController extends Controller
      */
     public function index(Request $request)
     {
-        $result = Profesor::all();
+        $result = Profesor::paginate();
         return view('profesor.profesor_listar',[
             'result' => $result,
+            'q' => ($request->has('q')) ? $request->q : '',
         ]);
     }
 
