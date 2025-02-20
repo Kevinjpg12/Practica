@@ -14,6 +14,23 @@
     <script src="{{ asset('plugins/jquery-validation/jquery.validate.min.js') }}"></script>
 @endpush
 
+@section('breadcrumb')
+<div class="content-header pb-0">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0"><i class="fas fa-book fa-fw"></i> Cursos</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item">Maestro</li>
+                    <li class="breadcrumb-item active">Cursos</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
 
 @section('content')
 <form action="{{ route('cursos.store') }}" method="POST">
@@ -47,7 +64,7 @@
                     </div>
                     <div class="card-footer">
                         <div class="float-right">
-                            <a href="#" onclick="{{ route('cursos.index') }}" class="btn btn-outline-danger"><i class="fas fa-times fa-fw"></i>
+                            <a href="{{ route('cursos.index') }}" class="btn btn-outline-danger"><i class="fas fa-times fa-fw"></i>
                                 CANCELAR</a>
                             <button type="submit" class="btn btn-outline-success ml-1"><i class="fas fa-save fa-fw"></i>
                                 {{ $mode == 'new' ? 'CREAR' : 'MODIFICAR' }} </button>
