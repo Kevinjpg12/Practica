@@ -15,8 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('alumno_id');
             $table->foreignId('curso_id');
-            $table->foreignId('horario');
-            $table->foreignId('valor');
+            $table->string('nota',20)->nullable();
             $table->timestamps();
         });
     }

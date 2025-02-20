@@ -23,8 +23,6 @@ class ReporteController extends Controller
         }
         $result = Reporte::orWhere('alumno_id','LIKE',$q)
                             ->orWhere('curso_id','LIKE',$q)
-                            ->orWhere('horario','LIKE',$q)
-                            ->orWhere('valor','LIKE',$q)
                             // ->orWhere(DB::raw("CONCAT('apellidos','nombres')"),'LIKE',$q)
                             ->paginate(30)
                             ->withQueryString();

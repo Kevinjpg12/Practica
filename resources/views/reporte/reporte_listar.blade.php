@@ -25,7 +25,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12 col-md-5 mt-2">
-                    <form action="{{ route('notas.index') }}" method="GET">
+                    <form action="{{ route('reportes.index') }}" method="GET">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                         <div class="btn-toolbar" role="toolbar">
                             <div class="input-group">
@@ -42,13 +42,6 @@
                                             <i class="fas fa-search fa-fw"></i>
                                         </button>
                                     </div>
-                                    {{-- <div class="btn-group pl-1">
-                                        <a href="{{ route('notas.create') }}" class="btn btn-success">
-                                            <i class="fas fa-plus fa-fw"></i> Nuevo
-                                        </a>
-
-                                    </div> --}}
-
                                 </div>
                             </div>
                         </div>
@@ -102,8 +95,7 @@
                         <th width="60">ID</th>
                         <th>Alumno</th>                      
                         <th>CURSO</th>
-                        <th>HORARIO</th>
-                        <th>VALOR</th>
+                        <th>NOTA</th>
                         <th class="text-right"></th>
                     </tr>
                 </thead>
@@ -112,13 +104,13 @@
                     <tr id="tr-{{ $item->id }}">
                             <td>{{ $item->id }}</td>
                             <td>{{ $item->alumno->apellidos. ' ' .$item->alumno->nombre }}</td>
-                            <td>{{ $item->curso->text}}</td>
-                            <td>{{ $item->horario}}</td>
-                            <td>{{ $item->valor}}</td>
+                            <td>{{ $item->curso->descripcion}}</td>
+                             <td>{{ $item->nota }}</td>
+
                             <td class="text-right">
-                                <a href="{{ route('notas.edit', $item->id) }}">Editar</a> |
+                                <a href="{{ route('reportes.edit', $item->id) }}">Editar</a> |
                                 <a href="#" class="delete-record" data-id="{{ $item->id }}"
-                                    data-url="{{ route('notas.destroy', $item->id) }}">
+                                    data-url="{{ route('reportes.destroy', $item->id) }}">
                                     <i class="far fa-trash-alt"></i>
                                 </a>
                             </td>
