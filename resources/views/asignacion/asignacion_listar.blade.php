@@ -92,7 +92,7 @@
             <tr>
                 <th></th>
                 <th>Alumno</th>
-                <th>Profesor</th>
+               
                 <th>Curso</th>
             </tr> 
         </thead>
@@ -100,9 +100,9 @@
             @forelse ($result as $item)
                 <tr>
                     <td>{{ $item->id }}</td>                    
-                    <td>{{ $item->alumno->apellido . ' ' .$item->alumno->nombre }}</td>
-                    <td>{{ $item->profesor->apellido . ' ' .$item->profesor->nombre }}</td>
-                    <td>{{ $item->curso->descripcion }}</td>
+                    <td>{{ $item->alumno->apellidos . ' ' .$item->alumno->nombre }}</td>
+                  
+                    <td>{{ $item->curso->text }}</td>
                 </tr>
             @empty
                 <tr>

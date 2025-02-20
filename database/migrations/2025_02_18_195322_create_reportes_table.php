@@ -13,7 +13,10 @@ return new class extends Migration
     {
         Schema::create('reportes', function (Blueprint $table) {
             $table->id();
-            $table->string('descripcion',100)->nullable();
+            $table->foreignId('alumno_id');
+            $table->foreignId('curso_id');
+            $table->foreignId('horario');
+            $table->foreignId('valor');
             $table->timestamps();
         });
     }

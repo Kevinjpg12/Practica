@@ -7,6 +7,7 @@ use App\Http\Controllers\CursoController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\NotaController;
 use App\Http\Controllers\ProfesorController;
+use App\Http\Controllers\ReporteController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -39,7 +40,7 @@ Route::group(['middleware' => ['auth']], function () {
     }); 
 
     Route::group(['prefix' => 'Report'], function (){
-        Route::resource('reporte', NotaController::class, ['names' => 'reportes']);   
+        Route::resource('reporte', ReporteController::class, ['names' => 'reportes']);   
     }); 
 
     Route::group(['prefix' => 'ajax'], function (){

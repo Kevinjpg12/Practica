@@ -63,8 +63,8 @@
 
                     <div class="card-footer">
                         <div class="float-right">
-                            <a href="#" onclick="{{ route('notas.index') }}" class="btn btn-outline-danger"><i class="fas fa-times fa-fw"></i>
-                                CANCELAR</a>
+                            <a href="{{ route('notas.index') }}"  class="btn btn-outline-danger"><i class="fas fa-times fa-fw"></i>
+                                CANCELAR</a> 
                             <button type="submit" class="btn btn-outline-success ml-1"><i class="fas fa-save fa-fw"></i>
                                 {{ $mode == 'new' ? 'CREAR' : 'MODIFICAR' }} </button>
                         </div>
