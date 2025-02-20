@@ -17,20 +17,51 @@
 
 @section('content')
 
-<div class="col-md-12">
-    <label class="mb-0">Alumno</label>
-    <select name="alumno_id" class="form-control select2-alumno" required>
-            
-    </select>
-</div>    
+ <form action="{{ $url }}" method="POST">
+        <input type="hidden" name="_method" value="{{ $mode == 'edit' ? 'PUT' : '' }}" />
+        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header bg-dark">
+                        <h3 class="card-title"><strong>Registro [{{ $mode == 'new' ? 'NUEVO' : 'MODIFICANDO' }}]</strong>
+                        </h3>
+                    </div>
+                    <div class="card-body border-bottom bg-form pb-1 pt-1">
+                        <div class="row mb-2">
+                        <div class="col-md-12">
+                        <label class="mb-0">Alumno</label>
+                        <select name="alumno_id" class="form-control select2-alumno" required>                               
+                        </select>
+                        </div>    
 
-<div class="col-md-12">
-    <label class="mb-0">Curso</label>
-    <select name="curso_id" class="form-control select2-curso" required>
+                        <div class="col-md-12">
+                            <label class="mb-0">Curso</label>
+                            <select name="curso_id" class="form-control select2-curso" required>
 
-    </select> 
-</div>
+                            </select> 
+                        </div>
 
+                        <div class="col-md-4">
+                            <label class="mb-0">Nota</label>
+                            <input type="text" class="form-control" name="nota" value="{{ old('nota',$row->descripcion) }}" required>
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="card-footer">
+                        <div class="float-right">
+                            <a href="#" onclick="{{ route('notas.index') }}" class="btn btn-outline-danger"><i class="fas fa-times fa-fw"></i>
+                                CANCELAR</a>
+                            <button type="submit" class="btn btn-outline-success ml-1"><i class="fas fa-save fa-fw"></i>
+                                {{ $mode == 'new' ? 'CREAR' : 'MODIFICAR' }} </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </form>
 
 @endsection
 

@@ -110,14 +110,15 @@
                     </tr>
                 </thead>
                 <tbody>
-
+ 
             @forelse ($result as $item)
                 <tr id="tr-{{ $item->id }}">
                     <td>{{ $item->id }}</td>
                     <td>{{ $item->descripcion }}</td>
                     <td>{{ $item->horario }}</td>
                     <td>{{ $item->valor }}</td>
-                    <td>{{ $item->profesor }}</td>
+                    <td>{{ $item->profesor->apellidos. ' ' .$item->profesor->nombre}}</td>
+                                   
                     <td class="text-right">
                         <a href="{{ route('cursos.edit', $item->id) }}">Editar</a> |
                         <a href="#" class="delete-record" data-id="{{ $item->id }}"

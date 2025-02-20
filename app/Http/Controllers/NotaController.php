@@ -23,8 +23,8 @@ class NotaController extends Controller
         }else{
             $q = session("session_cursos_q_search");
         }
-        $result = Curso::orWhere('descripcion','LIKE',$q)
-                            ->orWhere('horario','LIKE',$q)
+        $result = Nota::orWhere('alumno_id','LIKE',$q)
+                            ->orWhere('curso_id','LIKE',$q)
                             // ->orWhere(DB::raw("CONCAT('apellidos','nombres')"),'LIKE',$q)
                             ->paginate(30)
                             ->withQueryString();
@@ -42,7 +42,15 @@ class NotaController extends Controller
      */
     public function create()
     {
-        return view('notas.nota_formulario');
+       
+        $row = new Nota();
+        #$row->fill($request->all());
+        #$row->save();
+        return view('notas.nota_formulario',[
+            'row'   => $row,
+            'mode'  => 'new',
+            'url'   => route('notas.store'),
+        ]);
     }
 
     /**
@@ -50,7 +58,14 @@ class NotaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $request->validate([
+        //     'nombre'    => 'required',
+        //     'apellidos' => 'required',
+        // ]);
+        $row = new Nota();
+        $row->fill($request->all());
+        $row->save();
+        return redirect()->route('notas.index');
     }
 
     /**
@@ -66,7 +81,7 @@ class NotaController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        // return view('notas.nota_formulario');
     }
 
     /**

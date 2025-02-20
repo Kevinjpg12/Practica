@@ -106,13 +106,14 @@
                         <th class="text-right"></th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody> 
                     @forelse ($result as $item)
                     <tr id="tr-{{ $item->id }}">
                             <td>{{ $item->id }}</td>
-                            <td>{{ $item->apellidos . ' ' . $item->nombre }}</td>
-                            <td>{{ $item->curso }}</td>
-                            <td>{{ $item->nota }}</td>
+                            <td>{{ $item->alumno->apellidos. ' ' .$item->alumno->nombre }}</td>
+                            <td>{{ $item->curso->descripcion}}</td>
+                             <td>{{ $item->nota }}</td>
+
                             <td class="text-right">
                                 <a href="{{ route('notas.edit', $item->id) }}">Editar</a> |
                                 <a href="#" class="delete-record" data-id="{{ $item->id }}"
