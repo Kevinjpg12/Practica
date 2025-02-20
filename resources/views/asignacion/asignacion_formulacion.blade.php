@@ -29,15 +29,10 @@
                     
                             </select>
                         </div>
-                        <div class="col-md-12">
-                            <label class="mb-0">Profesor</label>
-                            <select name="profesor_id" class="form-control select2-profesor" required>
-                    
-                            </select>
-                        </div>
+                         
                         <div class="col-md-12">
                             <label class="mb-0">Curso</label>
-                            <select name="curso_id" class="form-control select2-curso" required>
+                            <select name="curso_id" class="form-control select2-curso2" required>
                     
                             </select>
                         </div>
@@ -45,7 +40,7 @@
                     </div>
                     <div class="card-footer">
                         <div class="float-right">
-                            <a href="#" onclick="{{ route('asignacion.index') }}" class="btn btn-outline-danger"><i class="fas fa-times fa-fw"></i>
+                            <a href="{{ route('asignacion.index') }}" class="btn btn-outline-danger"><i class="fas fa-times fa-fw"></i>
                                 CANCELAR</a>
                             <button type="submit" class="btn btn-outline-success ml-1"><i class="fas fa-save fa-fw"></i>
                                 {{ $mode == 'new' ? 'CREAR' : 'MODIFICAR' }} </button>
@@ -106,9 +101,9 @@
                 theme: 'bootstrap4',
             });
 
-            $('.select2-curso').select2({
+            $('.select2-curso2').select2({
                 ajax: {
-                    url: "{{ route('ajax_curso') }}",
+                    url: "{{ route('ajax_curso2') }}",
                     type: 'post',
                     dataType: 'json',
                     delay: 150,

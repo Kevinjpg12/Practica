@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Curso;
+use App\Models\VCursoProfesor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -131,6 +132,20 @@ class CursoController extends Controller
                             )                            
                             ->orWhere(DB::raw("CONCAT('apellido','nombre')"),'LIKE',$q)
                             ->orderBy('descripcion')
+                            ->limit(env('RESULT_SELECT2',20))
+                            ->get();
+        return response()->json(['results' => $result]);
+    }
+
+    public function ajax_curso2(Request $request){
+        $s = $request->s;
+        $q = str_replace(' ','%',"{$request->q}").'%';
+        $result = VCursoProfesor::select(
+                                'id',
+                                'text'
+                            )                            
+                            ->orWhere('text','LIKE',$q)
+                            ->orderBy('text')
                             ->limit(env('RESULT_SELECT2',20))
                             ->get();
         return response()->json(['results' => $result]);

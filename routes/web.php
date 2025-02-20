@@ -46,6 +46,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('alumnos', [AlumnoController::class,'ajax_alumno'])->name('ajax_alumno');
         Route::post('profesor', [ProfesorController::class,'ajax_profesor'])->name('ajax_profesor');
         Route::post('curso', [CursoController::class,'ajax_curso'])->name('ajax_curso');
+        Route::post('curso2', [CursoController::class,'ajax_curso2'])->name('ajax_curso2');
     });
 
 });   
