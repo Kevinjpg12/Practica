@@ -13,7 +13,17 @@
     <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
     <script src="{{ asset('plugins/jquery-validation/jquery.validate.min.js') }}"></script>
 @endpush
-
+@section('breadcrumb')
+    <div class="content-header pb-0">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0"><i class="fas fa-edit fa-fw"></i> Asignacion</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
 
 @section('content')
 <form action="{{ route('asignacion.store') }}" method="POST">
@@ -22,6 +32,10 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
+                    <div class="card-header bg-dark">
+                            <h3 class="card-title"><strong>Registro [{{ $mode == 'new' ? 'NUEVO' : 'MODIFICANDO' }}]</strong>
+                            </h3>
+                        </div>
                     <div class="card-body">
                         <div class="col-md-12">
                             <label class="mb-0">Alumno</label>
@@ -76,26 +90,6 @@
                     cache: true
                 },
                 placeholder: 'Selecciona una Alumno',
-                allowClear: true,
-                minimumInputLength: 0,
-                theme: 'bootstrap4',
-            });
-
-            $('.select2-profesor').select2({
-                ajax: {
-                    url: "{{ route('ajax_profesor') }}",
-                    type: 'post',
-                    dataType: 'json',
-                    delay: 150,
-                    data: function(params) {
-                        return {
-                            q: params.term, // search term
-                            page: params.page
-                        };
-                    },
-                    cache: true
-                },
-                placeholder: 'Selecciona un Profesor',
                 allowClear: true,
                 minimumInputLength: 0,
                 theme: 'bootstrap4',

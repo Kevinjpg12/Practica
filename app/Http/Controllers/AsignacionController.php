@@ -23,7 +23,7 @@ class AsignacionController extends Controller
             $q = session("session_asignacion_q_search");
         }
         $result = Asignacion::orWhere('alumno_id','LIKE',$q)
-                            ->orWhere('profesor_id','LIKE',$q)
+                            //->orWhere('profesor_id','LIKE',$q)
                             // ->orWhere(DB::raw("CONCAT('apellidos','nombres')"),'LIKE',$q)
                             ->paginate(30)
                             ->withQueryString();
@@ -46,7 +46,7 @@ class AsignacionController extends Controller
         return view('asignacion.asignacion_formulacion',[
             'row'   => $row,
             'mode'  => 'new',
-            'url'   => route('profesores.store'),
+            'url'   => route('asignacion.store'),
         ]);
     }
 

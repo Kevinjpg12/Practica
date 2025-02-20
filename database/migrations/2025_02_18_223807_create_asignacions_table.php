@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('asignacions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('alumno_id');
-            $table->foreignId('profesor_id');
             $table->foreignId('curso_id');
             $table->timestamps();
         });

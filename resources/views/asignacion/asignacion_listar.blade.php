@@ -8,12 +8,6 @@
                 <div class="col-sm-6">
                     <h1 class="m-0"><i class="fas fa-edit fa-fw"></i> Asignación</h1>
                 </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item">Asignación</li>
-                        <li class="breadcrumb-item active">Cursos</li>
-                    </ol>
-                </div>
             </div>
         </div>
     </div>

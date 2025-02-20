@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0"><i class="fas fa-user-graduate fa-fw"></i> Profesores</h1>
+                    <h1 class="m-0"><i class="fas fa-chalkboard-teacher fa-fw"></i> Profesores</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -54,7 +54,7 @@
 
                     <div class="card-footer">
                         <div class="float-right">
-                            <a href="#" onclick="{{ route('profesores.index') }}" class="btn btn-outline-danger"><i class="fas fa-times fa-fw"></i>
+                            <a href="{{ route('profesores.index') }}" class="btn btn-outline-danger"><i class="fas fa-times fa-fw"></i>
                                 CANCELAR</a>
                             <button type="submit" class="btn btn-outline-success ml-1"><i class="fas fa-save fa-fw"></i>
                                 {{ $mode == 'new' ? 'CREAR' : 'MODIFICAR' }} </button>

@@ -14,6 +14,18 @@
     <script src="{{ asset('plugins/jquery-validation/jquery.validate.min.js') }}"></script>
 @endpush
 
+@section('breadcrumb')
+    <div class="content-header pb-0">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0"><i class="fas fa-book-open fa-fw"></i> Plantilla de Notas</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
+
 
 @section('content')
 

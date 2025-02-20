@@ -1,5 +1,5 @@
 ### probar el servidor
-php artisan serve
+php artisan serv
 
 
 ### migracion de estructura de base de datos
