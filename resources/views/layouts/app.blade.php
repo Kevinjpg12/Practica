@@ -5,6 +5,7 @@
         <meta name="google" content="notranslate">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        
         @if(env('APP_ENV') == 'local')
             <!-- Favicon -->
             <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png">

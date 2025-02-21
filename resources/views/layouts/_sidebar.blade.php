@@ -28,7 +28,7 @@
                     <a href="{{ route('dashboard') }}" class="nav-link {{ request()->is('dashboard*') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
-                            Dashbaord
+                            Dashboard
                         </p>
                     </a>
                 </li>
