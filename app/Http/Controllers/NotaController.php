@@ -21,6 +21,31 @@ class NotaController extends Controller
             $q = str_replace("@",' ',$q);
             $q = '%'.str_replace(' ','%',$q).'%';
         }else{
+            $q = session("session_notas_q_search");
+        }
+        $result = Nota::orWhere('alumno_id','LIKE',$q)
+                            ->orWhere('curso_id','LIKE',$q)
+                            // ->orWhere(DB::raw("CONCAT('apellidos','nombres')"),'LIKE',$q)
+                            ->paginate(30)
+                            ->withQueryString();
+        session([
+            "session_notas_q_search" => $request->q,
+        ]);
+        return view('notas.nota_listar',[
+            'result' => $result,
+            'q' => ($request->has('q')) ? $request->q : '',
+        ]);
+    } 
+    
+    public function a(Request $request)
+    {
+        if($request->has('q')){
+            $q = $request->q;
+            $q = str_replace('(','',$q);
+            $q = str_replace("'",'',$q);
+            $q = str_replace("@",' ',$q);
+            $q = '%'.str_replace(' ','%',$q).'%';
+        }else{
             $q = session("session_cursos_q_search");
         }
         $result = Nota::orWhere('alumno_id','LIKE',$q)
@@ -31,11 +56,11 @@ class NotaController extends Controller
         session([
             "session_cursos_q_search" => $request->q,
         ]);
-        return view('notas.nota_listar',[
+        return view('reporte.reporte_listar',[
             'result' => $result,
             'q' => ($request->has('q')) ? $request->q : '',
         ]);
-    }
+    } 
 
     /**
      * Show the form for creating a new resource.
@@ -71,9 +96,29 @@ class NotaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Request $request)
     {
-        //
+        if($request->has('q')){
+            $q = $request->q;
+            $q = str_replace('(','',$q);
+            $q = str_replace("'",'',$q);
+            $q = str_replace("@",' ',$q);
+            $q = '%'.str_replace(' ','%',$q).'%';
+        }else{
+            $q = session("session_cursos_q_search");
+        }
+        $result = Nota::orWhere('alumno_id','LIKE',$q)
+                            ->orWhere('curso_id','LIKE',$q)
+                            // ->orWhere(DB::raw("CONCAT('apellidos','nombres')"),'LIKE',$q)
+                            ->paginate(30)
+                            ->withQueryString();
+        session([
+            "session_cursos_q_search" => $request->q,
+        ]);
+        return view('reporte.reporte_listar',[
+            'result' => $result,
+            'q' => ($request->has('q')) ? $request->q : '',
+        ]);
     }
 
     /**

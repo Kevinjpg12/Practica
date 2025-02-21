@@ -40,7 +40,7 @@ Route::group(['middleware' => ['auth']], function () {
     }); 
 
     Route::group(['prefix' => 'Report'], function (){
-        Route::resource('reporte', ReporteController::class, ['names' => 'reportes']);   
+        Route::resource('reporte', NotaController::class, ['names' => 'reportes']);   
     }); 
 
     Route::group(['prefix' => 'ajax'], function (){
