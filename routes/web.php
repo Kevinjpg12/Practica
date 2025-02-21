@@ -39,8 +39,10 @@ Route::group(['middleware' => ['auth']], function () {
         Route::resource('nota', NotaController::class, ['names' => 'notas']);   
     }); 
 
-    Route::group(['prefix' => 'Report'], function (){
-        Route::resource('reporte', NotaController::class, ['names' => 'reportes']);   
+    Route::group(['prefix' => 'report'], function (){
+        #Route::resource('reporte', NotaController::class, ['names' => 'reportes']);   
+        Route::get('reporte1/buscar' , [ReporteController::class,'reporte1_buscar'])->name('reporte1_buscar');
+        Route::post('reporte1/buscar' , [ReporteController::class,'reporte1_buscar_submit'])->name('reporte1_buscar_submit');
     }); 
 
     Route::group(['prefix' => 'ajax'], function (){

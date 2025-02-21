@@ -81,7 +81,7 @@
                     </a>
                 <li>
                  <li class="nav-item">
-                    <a href="{{ route('reportes.index') }}" class="nav-link {{ request()->is('Report/reporte') ? 'active' : '' }}">
+                    <a href="{{ route('reporte1_buscar') }}" class="nav-link {{ request()->is('report/reporte1*') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-sticky-note"></i>
                         <p>
                             Reportes
