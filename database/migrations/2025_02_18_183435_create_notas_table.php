@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('alumno_id');
             $table->foreignId('curso_id');
             $table->string('nota',20)->nullable();
+            $table->date('periodo',40)->nullable();
 
             $table->timestamps(); 
         });

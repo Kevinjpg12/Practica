@@ -38,7 +38,7 @@
                     <div class="card-header bg-dark">
                         <h3 class="card-title"><strong>Registro [{{ $mode == 'new' ? 'NUEVO' : 'MODIFICANDO' }}]</strong>
                         </h3>
-                    </div>
+                    </div>                   
                     <div class="card-body border-bottom bg-form pb-1 pt-1">
                         <div class="row mb-2">
                         <div class="col-md-12">
@@ -57,6 +57,11 @@
                         <div class="col-md-4">
                             <label class="mb-0">Nota</label>
                             <input type="text" class="form-control" name="nota" value="{{ old('nota',$row->descripcion) }}" required>
+                        </div>
+
+                         <div class="col-md-8">
+                            <label class="mb-0">Periodo</label>
+                            <input type="date" class="form-control" name="periodo" value="{{ old('periodo',$row->periodo) }}" required>
                         </div>
                         </div>
                     </div>

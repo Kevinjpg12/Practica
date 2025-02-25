@@ -103,6 +103,7 @@
                         <th>Alumno</th>                      
                         <th>CURSO</th>
                         <th>NOTA</th>
+                        <th>PERIODO</th>
                         <th class="text-right"></th>
                     </tr>
                 </thead>
@@ -113,6 +114,7 @@
                             <td>{{ $item->alumno->apellidos. ' ' .$item->alumno->nombre }}</td>
                             <td>{{ $item->curso->descripcion}}</td>
                              <td>{{ $item->nota }}</td>
+                             <td>{{ $item->periodo }}</td>
 
                             <td class="text-right">
                                 <a href="{{ route('notas.edit', $item->id) }}">Editar</a> |
