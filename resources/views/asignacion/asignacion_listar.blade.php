@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@push('header')
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+@endpush
 
 @section('breadcrumb')
     <div class="content-header pb-0">
@@ -90,20 +93,26 @@
             <table class="table table-hover table-sm">
                 <thead>
             <tr>
-                <th></th>
+                <th width="60">ID</th>
                 <th>Alumno</th>
-               
                 <th>Curso</th>
+                <th class="text-right"></th>
             </tr> 
         </thead>
         <tbody>
             @forelse ($result as $item)
-                <tr>
-                    <td>{{ $item->id }}</td>                    
-                    <td>{{ $item->alumno->apellidos . ' ' .$item->alumno->nombre }}</td>
-                  
-                    <td>{{ $item->curso->text }}</td>
-                </tr>
+                <tr id="tr-{{ $item->id }}">
+                            <td>{{ $item->id }}</td>
+                            <td>{{ $item->alumno->apellidos . ' ' . $item->alumno->nombre }}</td>
+                            <td>{{ $item->curso->text }}</td>
+                            <td class="text-right">
+                                <a href="{{ route('asignacion.edit', $item->id) }}">Editar</a> |
+                                <a href="#" class="delete-record" data-id="{{ $item->id }}"
+                                    data-url="{{ route('asignacion.destroy', $item->id) }}">
+                                    <i class="far fa-trash-alt"></i>
+                                </a>
+                            </td>
+                        </tr> 
             @empty
                 <tr>
                     <td colspan="10">No hay registros</td>

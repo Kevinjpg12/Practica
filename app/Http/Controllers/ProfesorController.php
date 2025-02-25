@@ -102,7 +102,7 @@ class ProfesorController extends Controller
         $row->save();
         return redirect()->route('profesores.index');
     }
-
+ 
     /**
      * Remove the specified resource from storage.
      */

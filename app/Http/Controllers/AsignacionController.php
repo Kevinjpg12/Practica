@@ -75,6 +75,12 @@ class AsignacionController extends Controller
     public function edit(string $id)
     {
         //
+        $row = Asignacion::whereId($id)->first();
+        return view('asignacion.asignacion_formulacion',[
+            'row'   => $row,
+            'mode'  => 'edit',
+            'url'   => route('asignacion.update',$row->id),
+        ]);
     }
 
     /**
@@ -82,14 +88,29 @@ class AsignacionController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'alumno_id'    => 'required|min:2',
+            'curso_id' => 'required',
+        ]);
+        $row = Asignacion::whereId($id)->first();
+        $row->fill($request->all());
+        $row->save();
+        return redirect()->route('asignacion.index');
     }
-
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
     {
-        //
+        $row = Asignacion::whereId($id)->first();
+        if($row){
+            $row->delete();
+            $data['status'] = 100;
+            $data['message'] = 'Registro eliminado!';
+        }else{
+            $data['status'] = 101;
+            $data['message'] = 'El registro no existe o ya fue eliminado!';
+        }
+        return response()->json($data, $data['status'] == 100 ? 200 : 403);
     }
 }
