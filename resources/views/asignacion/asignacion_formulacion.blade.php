@@ -38,18 +38,24 @@
                         </div>
                     <div class="card-body">
                         <div class="col-md-12">
-                            <label class="mb-0">Alumno</label>
-                            <select name="alumno_id" class="form-control select2-alumno" required>
-                    
-                            </select>
-                        </div>
+                                <label class="mb-0">Profesor</label>
+                                <select name="alumno_id" class="form-control select2-alumno" required>
+                                    @if ($mode == 'edit')
+                                        <option value="{{ $row->alumno_id }}" selected>
+                                            {{ $row->alumno_id}}</option>
+                                    @endif
+                                </select>
+                            </div>
                          
                         <div class="col-md-12">
-                            <label class="mb-0">Curso</label>
-                            <select name="curso_id" class="form-control select2-curso2" required>
-                    
-                            </select>
-                        </div>
+                                <label class="mb-0">CURSO</label>
+                                <select name="curso_id" class="form-control select2-curso2" required>
+                                    @if ($mode == 'edit')
+                                        <option value="{{ $row->curso_id }}" selected>
+                                            {{ $row->curso_id}}</option>
+                                    @endif
+                                </select>
+                            </div>
                 
                     </div>
                     <div class="card-footer">
