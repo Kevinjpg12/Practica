@@ -22,6 +22,7 @@ class AsignacionFactory extends Factory
         return [
             'alumno_id' => Alumno::inRandomOrder()->value('id') ?? Alumno::factory()->create()->id,
             'curso_id'  => Curso::inRandomOrder()->value('id') ?? Curso::factory()->create()->id,
+            'periodo'   => $this->faker->date('Y-m-d'), 
         ];
     }
 }

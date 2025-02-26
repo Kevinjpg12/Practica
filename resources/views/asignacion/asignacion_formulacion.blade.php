@@ -59,6 +59,10 @@
                                     @endif
                                 </select>
                             </div>
+                            <div class="col-md-8">
+                                <label class="mb-0">Periodo</label>
+                                <input type="date" class="form-control" name="periodo" value="{{ old('periodo',$row->periodo) }}" required>
+                            </div>
                         </div>
                     </div>
                     <div class="card-footer">

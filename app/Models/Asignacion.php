@@ -11,6 +11,7 @@ class Asignacion extends Model
     protected $fillable = [
         'alumno_id',
         'curso_id',
+        'periodo' ,
     ]; 
 
     public function alumno(){
@@ -20,6 +21,6 @@ class Asignacion extends Model
     public function curso(){
         return $this->hasOne(VCursoProfesor::class,'id','curso_id');
         return $this->hasOne(Curso::class,'id','curso_id');
-    }
+    } 
 
 }
