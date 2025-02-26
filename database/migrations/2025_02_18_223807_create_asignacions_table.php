@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('alumno_id');
             $table->foreignId('curso_id');
+            $table->date('periodo',40)->nullable();
             $table->timestamps();
         });
     }

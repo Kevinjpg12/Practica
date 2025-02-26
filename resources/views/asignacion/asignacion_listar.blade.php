@@ -96,6 +96,7 @@
                 <th width="60">ID</th>
                 <th>Alumno</th>
                 <th>Curso</th>
+                <th>PERIODO</th>
                 <th class="text-right"></th>
             </tr> 
         </thead>
@@ -105,6 +106,7 @@
                             <td>{{ $item->id }}</td>
                             <td>{{ $item->alumno->apellidos . ' ' . $item->alumno->nombre }}</td>
                             <td>{{ $item->curso->text }}</td>
+                            <td>{{ $item->periodo }}</td>
                             <td class="text-right">
                                 <a href="{{ route('asignacion.edit', $item->id) }}">Editar</a> |
                                 <a href="#" class="delete-record" data-id="{{ $item->id }}"
