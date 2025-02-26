@@ -80,7 +80,12 @@ class NotaController extends Controller
      */
     public function edit(string $id)
     {
-        // return view('notas.nota_formulario');
+        // $row = Nota::whereId($id)->first();
+        // return view('notas.nota_formulario',[
+        //     'row'   => $row,
+        //     'mode'  => 'edit',
+        //     'url'   => route('notas.update',$row->id),
+        // ]);
     }
 
     /**
