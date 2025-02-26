@@ -42,7 +42,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <label class="mb-0">Alumno</label>
-                                <select name="alumno_id" class="form-control select2-profesor" required>
+                                <select name="alumno_id" class="form-control select2-alumno" required>
                                     @if ($mode == 'edit')
                                         <option value="{{ $row->alumno_id }}" selected>
                                             {{ $row->alumno->apellidos . ' ' . $row->alumno->nombre }}</option>
@@ -52,7 +52,7 @@
 
                             <div class="col-md-12">
                                 <label class="mb-0">Curso</label>
-                                <select name="curso_id" class="form-control select2-profesor" required>
+                                <select name="curso_id" class="form-control select2-curso2" required>
                                     @if ($mode == 'edit')
                                         <option value="{{ $row->curso_id }}" selected>
                                             {{ $row->curso->text}}</option>
@@ -84,9 +84,10 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
-            $('.select2-profesor').select2({
+
+            $('.select2-alumno').select2({
                 ajax: {
-                    url: "{{ route('ajax_profesor') }}",
+                    url: "{{ route('ajax_alumno') }}",
                     type: 'post',
                     dataType: 'json',
                     delay: 150,
@@ -98,7 +99,27 @@
                     },
                     cache: true
                 },
-                placeholder: 'Selecciona un Profesor',
+                placeholder: 'Selecciona una Alumno',
+                allowClear: true,
+                minimumInputLength: 0,
+                theme: 'bootstrap4',
+            });
+
+            $('.select2-curso2').select2({
+                ajax: {
+                    url: "{{ route('ajax_curso2') }}",
+                    type: 'post',
+                    dataType: 'json',
+                    delay: 150,
+                    data: function(params) {
+                        return {
+                            q: params.term, // search term
+                            page: params.page
+                        };
+                    },
+                    cache: true
+                },
+                placeholder: 'Selecciona un Curso',
                 allowClear: true,
                 minimumInputLength: 0,
                 theme: 'bootstrap4',
