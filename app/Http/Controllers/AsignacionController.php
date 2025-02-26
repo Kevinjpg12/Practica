@@ -99,7 +99,7 @@ class AsignacionController extends Controller
     }
     /**
      * Remove the specified resource from storage.
-     */
+     */ 
     public function destroy(string $id)
     {
         $row = Asignacion::whereId($id)->first();
@@ -113,4 +113,5 @@ class AsignacionController extends Controller
         }
         return response()->json($data, $data['status'] == 100 ? 200 : 403);
     }
-}
+    
+} 
