@@ -80,12 +80,12 @@ class NotaController extends Controller
      */
     public function edit(string $id)
     {
-        // $row = Nota::whereId($id)->first();
-        // return view('notas.nota_formulario',[
-        //     'row'   => $row,
-        //     'mode'  => 'edit',
-        //     'url'   => route('notas.update',$row->id),
-        // ]);
+        $row = Nota::whereId($id)->first();
+        return view('notas.nota_formulario',[
+            'row'   => $row,
+            'mode'  => 'edit',
+            'url'   => route('notas.update',$row->id),
+        ]);
     }
 
     /**
@@ -93,7 +93,15 @@ class NotaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // $request->validate([
+        //     'nombre'    => 'required|min:2',
+        //     'apellidos' => 'required',
+        // ]);
+
+        $row = Nota::whereId($id)->first();
+        $row->fill($request->all());
+        $row->save();
+        return redirect()->route('notas.index');
     }
 
     /**
@@ -101,6 +109,15 @@ class NotaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $row = Nota::whereId($id)->first();
+        if($row){
+            $row->delete();
+            $data['status'] = 100;
+            $data['message'] = 'Registro eliminado!';
+        }else{
+            $data['status'] = 101;
+            $data['message'] = 'El registro no existe o ya fue eliminado!';
+        }
+        return response()->json($data, $data['status'] == 100 ? 200 : 403);
     }
 }

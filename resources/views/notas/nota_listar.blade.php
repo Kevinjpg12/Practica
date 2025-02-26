@@ -112,7 +112,7 @@
                     <tr id="tr-{{ $item->id }}">
                             <td>{{ $item->id }}</td>
                             <td>{{ $item->alumno->apellidos. ' ' .$item->alumno->nombre }}</td>
-                            <td>{{ $item->curso->descripcion}}</td>
+                            <td>{{ $item->curso->text}}</td>
                              <td>{{ $item->nota }}</td>
                              <td>{{ $item->periodo }}</td>
 

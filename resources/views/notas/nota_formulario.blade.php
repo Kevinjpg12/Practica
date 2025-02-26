@@ -41,22 +41,32 @@
                     </div>                   
                     <div class="card-body border-bottom bg-form pb-1 pt-1">
                         <div class="row mb-2">
-                        <div class="col-md-12">
-                        <label class="mb-0">Alumno</label>
-                        <select name="alumno_id" class="form-control select2-alumno" required>                               
-                        </select>
-                        </div>    
+                        
+                      
+                            <div class="col-md-12">
+                                <label class="mb-0">Alumno</label>
+                                <select name="alumno_id" class="form-control select2-alumno" required>
+                                    @if ($mode == 'edit')
+                                        <option value="{{ $row->alumno_id }}" selected>
+                                            {{ $row->alumno->apellidos . ' ' . $row->alumno->nombre }}</option>
+                                    @endif
+                                </select>
+                            </div>
+                   
 
                         <div class="col-md-12">
-                            <label class="mb-0">Curso</label>
-                            <select name="curso_id" class="form-control select2-curso" required>
-
-                            </select> 
-                        </div>
+                                <label class="mb-0">Curso</label>
+                                <select name="curso_id" class="form-control select2-curso" required>
+                                    @if ($mode == 'edit')
+                                        <option value="{{ $row->curso_id }}" selected>
+                                            {{ $row->curso->text }}</option>
+                                    @endif
+                                </select>
+                            </div>
 
                         <div class="col-md-4">
                             <label class="mb-0">Nota</label>
-                            <input type="text" class="form-control" name="nota" value="{{ old('nota',$row->descripcion) }}" required>
+                            <input type="text" class="form-control" name="nota" value="{{ old('nota',$row->nota) }}" required>
                         </div>
 
                          <div class="col-md-8">

@@ -94,8 +94,10 @@ class ProfesorController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'nombre'    => 'required|min:2',
-            'apellidos' => 'required',
+            'alumno'    => 'required|min:2',
+            'curso' => 'required',
+            'nota' => 'required',
+            'periodo' => 'required',
         ]);
         $row = Profesor::whereId($id)->first();
         $row->fill($request->all());
