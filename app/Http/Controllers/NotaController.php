@@ -126,7 +126,7 @@ class NotaController extends Controller
 
     public function ajax_curso2(Request $request)
     {
-        // Validar que el parámetro 'q' esté presente
+       
         $request->validate([
             'q' => 'nullable|string|max:255'
         ]);
@@ -134,7 +134,7 @@ class NotaController extends Controller
         $q = $request->q ? str_replace(' ', '%', $request->q) . '%' : '%';
     
         $result = VPlanillaAlumno::select('id', 'text')
-                    ->where('text', 'LIKE', $q) // Asegurar que el filtro funcione correctamente
+                    ->where('text', 'LIKE', $q) 
                     ->orderBy('text')
                     ->limit(env('RESULT_SELECT2', 20))
                     ->get();
@@ -142,17 +142,21 @@ class NotaController extends Controller
         return response()->json(['results' => $result]);
     }
 
-    public function ajax_planilla(Request $request){
-        $s = $request->s;
-        $q = str_replace(' ','%',"{$request->q}").'%';
-        $result = VPlanillaAlumno::select(
-                                'id',
-                                'TEXT'
-                            )                            
-                            ->orWhere('TEXT','LIKE',$q)
-                            ->orderBy('TEXT')
-                            ->limit(env('RESULT_SELECT2',20))
-                            ->get();
+    public function ajax_planilla(Request $request)
+    {
+       
+        $request->validate([
+            'q' => 'nullable|string|max:255'
+        ]);
+    
+        $q = $request->q ? str_replace(' ', '%', $request->q) . '%' : '%';
+    
+        $result = VPlanillaAlumno::select('id', 'TEXT')
+                    ->where('TEXT', 'LIKE', $q)
+                    ->orderBy('TEXT')
+                    ->limit(env('RESULT_SELECT2', 20))
+                    ->get();
+    
         return response()->json(['results' => $result]);
     }
     

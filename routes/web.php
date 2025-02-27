@@ -29,7 +29,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::resource('curso', CursoController::class, ['names' => 'cursos']);   
     }); 
 
-  
+   
 //asignatura
     // Route::group(['prefix' => 'boleta'], function (){
     //     Route::resource('asignatura', CursoController::class, ['names' => 'asignaturas']);   
@@ -57,5 +57,5 @@ Route::group(['middleware' => ['auth']], function () {
 
 });   
  
-
+ 
 

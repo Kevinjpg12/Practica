@@ -85,9 +85,9 @@
                 }
             });
 
-            $('.select2-planilla').select2({
+        $('.select2-alumno').select2({
                 ajax: {
-                    url: "{{ route('ajax_planilla') }}",
+                    url: "{{ route('ajax_alumno') }}",
                     type: 'post',
                     dataType: 'json',
                     delay: 150,
@@ -103,9 +103,42 @@
                 allowClear: true,
                 minimumInputLength: 0,
                 theme: 'bootstrap4',
-            });
-        
         });
+
+       $('.select2-planilla').select2({
+                    ajax: {
+                        url: "{{ route('ajax_planilla') }}",
+                        type: 'post',
+                        dataType: 'json',
+                        delay: 150,
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') // Agregar CSRF Token
+                        },
+                        data: function(params) { 
+                            return {
+                                q: params.term, // search term
+                                page: params.page
+                            };
+                        },
+                        processResults: function(data) {
+                            return {
+                                results: $.map(data.results, function(item) {
+                                    return { id: item.id, text: item.TEXT };
+                                })
+                            };
+                        },
+                        cache: true
+                    },
+                        placeholder: 'Selecciona un Curso',
+                        allowClear: true,
+                        minimumInputLength: 0,
+                        theme: 'bootstrap4',
+                    });
+
+        
+                });
+        
+       
         
     </script>
 @endpush 
