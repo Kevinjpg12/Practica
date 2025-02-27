@@ -101,9 +101,7 @@
                     <tr>
                         <th width="60">ID</th>
                         <th>Alumno</th>                      
-                        <th>CURSO</th>
                         <th>NOTA</th>
-                        <th>PERIODO</th>
                         <th class="text-right"></th>
                     </tr>
                 </thead>
@@ -111,10 +109,8 @@
                     @forelse ($result as $item)
                     <tr id="tr-{{ $item->id }}">
                             <td>{{ $item->id }}</td>
-                            <td>{{ $item->alumno->apellidos. ' ' .$item->alumno->nombre }}</td>
-                            <td>{{ $item->curso->text}}</td>
+                            <td>{{ $item->curso->TEXT }}</td>
                              <td>{{ $item->nota }}</td>
-                             <td>{{ $item->periodo }}</td>
 
                             <td class="text-right">
                                 <a href="{{ route('notas.edit', $item->id) }}">Editar</a> |

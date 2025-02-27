@@ -52,27 +52,10 @@
                                     @endif
                                 </select>
                             </div>
-                   
-
-                        <div class="col-md-12">
-                                <label class="mb-0">Curso</label>
-                                <select name="curso_id" class="form-control select2-curso" required>
-                                    @if ($mode == 'edit')
-                                        <option value="{{ $row->curso_id }}" selected>
-                                            {{ $row->curso->text }}</option>
-                                    @endif
-                                </select>
+                            <div class="col-md-4">
+                                <label class="mb-0">Nota</label>
+                                <input type="text" class="form-control" name="nota" value="{{ old('nota',$row->nota) }}" required>
                             </div>
-
-                        <div class="col-md-4">
-                            <label class="mb-0">Nota</label>
-                            <input type="text" class="form-control" name="nota" value="{{ old('nota',$row->nota) }}" required>
-                        </div>
-
-                         <div class="col-md-8">
-                            <label class="mb-0">Periodo</label>
-                            <input type="date" class="form-control" name="periodo" value="{{ old('periodo',$row->periodo) }}" required>
-                        </div>
                         </div>
                     </div>
 

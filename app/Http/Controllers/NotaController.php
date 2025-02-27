@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Curso;
 use App\Models\Nota;
+use App\Models\VPlanillaAlumno;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -119,5 +120,18 @@ class NotaController extends Controller
             $data['message'] = 'El registro no existe o ya fue eliminado!';
         }
         return response()->json($data, $data['status'] == 100 ? 200 : 403);
+    }
+    public function ajax_nota(Request $request){
+        $s = $request->s;
+        $q = str_replace(' ','%',"{$request->q}").'%';
+        $result = VPlanillaAlumno::select(
+                                'id',
+                                'text'
+                            )                            
+                            ->orWhere('text','LIKE',$q)
+                            ->orderBy('text')
+                            ->limit(env('RESULT_SELECT2',20))
+                            ->get();
+        return response()->json(['results' => $result]);
     }
 }
