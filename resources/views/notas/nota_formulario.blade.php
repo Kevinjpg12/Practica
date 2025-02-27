@@ -45,10 +45,10 @@
                       
                             <div class="col-md-12">
                                 <label class="mb-0">Alumno</label>
-                                <select name="alumno_id" class="form-control select2-alumno" required>
+                                <select name="alumno_id" class="form-control select2-planilla" required>
                                     @if ($mode == 'edit')
-                                        <option value="{{ $row->alumno_id }}" selected>
-                                            {{ $row->alumno->apellidos . ' ' . $row->alumno->nombre }}</option>
+                                        <option value="{{ $row->curso_id }}" selected>
+                                            {{ $row->curso->TEXT }}</option>
                                     @endif
                                 </select>
                             </div>
@@ -85,9 +85,9 @@
                 }
             });
 
-            $('.select2-alumno').select2({
+            $('.select2-planilla').select2({
                 ajax: {
-                    url: "{{ route('ajax_alumno') }}",
+                    url: "{{ route('ajax_planilla') }}",
                     type: 'post',
                     dataType: 'json',
                     delay: 150,
@@ -104,27 +104,6 @@
                 minimumInputLength: 0,
                 theme: 'bootstrap4',
             });
-
-            $('.select2-curso').select2({
-                ajax: {
-                    url: "{{ route('ajax_curso') }}",
-                    type: 'post',
-                    dataType: 'json',
-                    delay: 150,
-                    data: function(params) {
-                        return {
-                            q: params.term, // search term
-                            page: params.page
-                        };
-                    },
-                    cache: true
-                },
-                placeholder: 'Selecciona un Curso',
-                allowClear: true,
-                minimumInputLength: 0,
-                theme: 'bootstrap4',
-            });
-
         
         });
         

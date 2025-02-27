@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Curso;
 use App\Models\Nota;
+use App\Models\VCursoProfesor;
 use App\Models\VPlanillaAlumno;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -121,17 +122,38 @@ class NotaController extends Controller
         }
         return response()->json($data, $data['status'] == 100 ? 200 : 403);
     }
-    public function ajax_nota(Request $request){
+   
+
+    public function ajax_curso2(Request $request)
+    {
+        // Validar que el parámetro 'q' esté presente
+        $request->validate([
+            'q' => 'nullable|string|max:255'
+        ]);
+    
+        $q = $request->q ? str_replace(' ', '%', $request->q) . '%' : '%';
+    
+        $result = VPlanillaAlumno::select('id', 'text')
+                    ->where('text', 'LIKE', $q) // Asegurar que el filtro funcione correctamente
+                    ->orderBy('text')
+                    ->limit(env('RESULT_SELECT2', 20))
+                    ->get();
+    
+        return response()->json(['results' => $result]);
+    }
+
+    public function ajax_planilla(Request $request){
         $s = $request->s;
         $q = str_replace(' ','%',"{$request->q}").'%';
         $result = VPlanillaAlumno::select(
                                 'id',
-                                'text'
+                                'TEXT'
                             )                            
-                            ->orWhere('text','LIKE',$q)
-                            ->orderBy('text')
+                            ->orWhere('TEXT','LIKE',$q)
+                            ->orderBy('TEXT')
                             ->limit(env('RESULT_SELECT2',20))
                             ->get();
         return response()->json(['results' => $result]);
     }
+    
 }

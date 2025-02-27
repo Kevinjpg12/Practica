@@ -114,7 +114,7 @@ class AsignacionController extends Controller
         }
         return response()->json($data, $data['status'] == 100 ? 200 : 403);
     }
-    
+     
     public function ajax_curso2(Request $request)
     {
         // Validar que el parámetro 'q' esté presente

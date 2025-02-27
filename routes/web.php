@@ -8,6 +8,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\NotaController;
 use App\Http\Controllers\ProfesorController;
 use App\Http\Controllers\ReporteController;
+use App\Models\VCursoProfesor;
+use App\Models\VPlanillaAlumno;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -50,6 +52,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('profesor', [ProfesorController::class,'ajax_profesor'])->name('ajax_profesor');
         Route::post('curso', [CursoController::class,'ajax_curso'])->name('ajax_curso');
         Route::post('curso2', [CursoController::class,'ajax_curso2'])->name('ajax_curso2');
+        Route::post('planilla', [NotaController::class,'ajax_planilla'])->name('ajax_planilla');
     });
 
 });   
